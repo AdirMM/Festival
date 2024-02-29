@@ -1,0 +1,84 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.lineup {
+    background-color: v.$pink;
+    padding: 12rem 0;
+
+    h3, p {
+        text-align: center;
+        color: v.$white;
+    }
+
+    .dia {
+        text-transform: uppercase;
+        margin: 5rem;
+    }
+}
+
+.escenarios-contenedor {
+    @include m.tablet {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5rem;
+    }
+
+    p {
+        color: v.$black;
+    }
+
+    .escenario {
+        padding-top: 2rem;
+
+        .nombre-escenario {
+
+            &::after {
+                content: '';
+                display: block;
+                width: 20rem;
+                height: 10rem;
+                margin: 0 auto;
+                background-size: 15rem;
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+        }
+    }
+}
+
+.edm .nombre-escenario:after {
+    background-image: url(/build/img/icono_edm.png);
+}
+
+.rock .nombre-escenario:after {
+    background-image: url(/build/img/icono_rock.png);
+}
+
+.calendario {
+    @include m.resetear-lista;
+
+    li {
+        padding: 2.5rem;
+        font-weight: bold;
+
+        span {
+            font-weight: 400;
+        }
+    }
+}
+
+.bg-amarillo {
+    background-color: v.$yellow;
+
+    li:nth-child(odd) {
+        background-color: darken($color: v.$yellow, $amount: 14%);
+    }
+}
+
+.bg-verde {
+    background-color: v.$green;
+
+    li:nth-child(odd) {
+        background-color: darken($color: v.$green, $amount: 4%);
+    }
+}
